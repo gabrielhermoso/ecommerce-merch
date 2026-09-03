@@ -1,0 +1,1180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ecommerce</title>
+    <link rel="stylesheet" href="home.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="logo.png" alt="Logo">
+        </div>
+        <nav>
+            <ul class ="sidebar">
+                <li onclick="hideSidebar();"><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="32px" viewBox="0 -960 960 960" width="32px" fill="#FFFFFF"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg></a></li>
+                <li onclick="hideSidebar()"><a href="#home">Home</a></li>
+                <li onclick="hideSidebar()"><a href="#shop">Shop</a></li>
+                <li onclick="hideSidebar()"><a href="#contacts">Contacts</a></li>
+                <li onclick="hideSidebar(); openAccount();"><a href="#accounts">Accounts</a></li>
+
+            </ul>
+            <ul class = "normal-header">
+                <li class="hide-on-mobile" ><a href="#home" >Home</a></li>
+                <li class="hide-on-mobile"><a href="#shop">Shop</a></li>
+                <li class="hide-on-mobile"><a href="#contacts">Contacts</a></li>
+                <li class ="show-on-mobile" onclick="ShowSidebar()"><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="32px" viewBox="0 -960 960 960" width="32px" fill="#FFFFFF"><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/></svg></a></li>
+
+            </ul>
+        </nav>
+
+        <div class="icons">
+            <img id ="clicksearch" src="search.png" alt="Search" class = "search-icon">
+            <img class = "account" src="user.png" alt="User" onclick="openAccount()">
+            <img src="cart.png" alt="Cart" class="cart-icon" onclick="openCart()">
+        </div>
+
+    </header>
+    <div class="search-overlay"></div>
+    <div class = "search-bar" id="s">
+
+        <img class="icon-search-bar" src="search.png" alt="Search">
+
+        <div class="gablogoforsearch">
+            <img src="logo.png" alt="Logo">
+        </div>
+
+        <input type="text" id="search" placeholder="Search product">
+    </div>
+
+    <div class = "suggestions">
+
+        <div class="suggestions-bar">
+            <img src="products/hoodie-logo.png" alt="PRODUCT-IMG">
+            <a href="" onclick="openProductFromSuggestion(event, this)">OG LOGO HOODIE</a>
+        </div>
+        
+        <div class="suggestions-bar">
+            <img src="products/hoodie-pink-it.png" alt="PRODUCT-IMG">
+            <a href="" onclick="openProductFromSuggestion(event, this)">BEACH HOODIE</a>
+        </div>
+
+        <div class="suggestions-bar">
+            <img src="products/hoodie-white-it.png" alt="PRODUCT-IMG">
+            <a href="" onclick="openProductFromSuggestion(event, this)">PROGRAMMER HOODIE</a>
+        </div>
+
+        <div class="suggestions-bar">
+            <img src="products/denim-jacket.png" alt="PRODUCT-IMG">
+            <a href="" onclick="openProductFromSuggestion(event, this)">DENIM JACKET</a>
+        </div>
+
+        <div class="suggestions-bar">
+            <img src="products/poloshirt-redblack.png" alt="PRODUCT-IMG">
+            <a href="" onclick="openProductFromSuggestion(event, this)">RED BLACK POLOSHIRT</a>
+        </div>
+
+        <div class="suggestions-bar">
+            <img src="products/shirt-black-quotes.png" alt="PRODUCT-IMG">
+            <a href="" onclick="openProductFromSuggestion(event, this)">QUOTES T-SHIRT</a>
+        </div>
+
+        <div class="suggestions-bar">
+            <img src="products/shirt-fire.png" alt="PRODUCT-IMG">
+            <a href="" onclick="openProductFromSuggestion(event, this)">FIRE T-SHIRT</a>
+        </div>
+
+        <div class="suggestions-bar">
+            <img src="products/shirt-oglogo.png" alt="PRODUCT-IMG">
+            <a href="" onclick="openProductFromSuggestion(event, this)">OG LOGO T-SHIRT</a>
+        </div>
+
+        <div class="suggestions-bar">
+            <img src="products/jorts-denim-black.png" alt="PRODUCT-IMG">
+            <a href="" onclick="openProductFromSuggestion(event, this)">DENIM JORTS BLACK</a>
+        </div>
+
+        <div class="suggestions-bar">
+            <img src="products/jorts-denim.png" alt="PRODUCT-IMG">
+            <a href="" onclick="openProductFromSuggestion(event, this)">DENIM JORTS</a>
+        </div>
+
+        <div class="suggestions-bar">
+            <img src="products/short-embroid.png" alt="PRODUCT-IMG">
+            <a href="" onclick="openProductFromSuggestion(event, this)">EMBROID LOGO SHORT</a>
+        </div>
+
+        <div class="suggestions-bar">
+            <img src="products/short-summer.png" alt="PRODUCT-IMG">
+            <a href="" onclick="openProductFromSuggestion(event, this)">SUMMER SHORT</a>
+        </div>
+
+        <div class="suggestions-bar">
+            <img src="products/beanie-embroid.png" alt="PRODUCT-IMG">
+            <a href="" onclick="openProductFromSuggestion(event, this)">EMBROID LOGO BEANIE</a>
+        </div>
+
+        <div class="suggestions-bar">
+            <img src="products/bucket-hat.png" alt="PRODUCT-IMG">
+            <a href="" onclick="openProductFromSuggestion(event, this)">EMBROID BUCKET HAT</a>
+        </div>
+
+       
+
+    </div>
+
+    <section class="user-account">
+        <button type="button" class = "close-account" onclick ="closeAccount()">
+                &times;
+        </button>
+        <div class="login-form">
+            <h2>Login</h2>
+            <form action="" id="loginForm">
+                <div class="input-box">
+                    <input type="email" name="email" id="loginEmail"  placeholder = " " required>
+                    <label for="loginEmail">Email</label>
+                </div>
+
+                <div class="input-box">
+                    <input type="password" name="password" id="loginPassword" placeholder=" " required>
+                    <label for="loginPassword">Password</label>
+                </div>
+                <a onclick="openRegister();">Don't have an account?</a>
+                <button type="submit">Login</button>
+                
+            </form>
+        </div>
+
+        <div class="register-form">
+            <h2>Register</h2>
+            <form action="" id="registerForm">
+
+                <div class="input-box">
+                <input id="firstName" type="text" placeholder=" " required>
+                <label for="firstName">First name</label>
+                </div>
+
+                <div class="input-box">
+                <input id="lastName" type="text" placeholder=" " required>
+                <label for="lastName">Last name</label>
+                </div>
+
+                <div class="input-box">
+                <input  type="email" name="email" id="registerEmail" placeholder=" " required>
+                <label for="registerEmail">Email</label>
+                </div>
+
+                <div class="input-box">
+                <input type="password" name="password" id="registerPassword" placeholder=" " required>
+                <label for="registerPassword">Password</label>
+                </div>
+
+
+             
+                <a onclick="openLogin()">Already have an account?</a>
+                <button type="submit">Register</button>
+
+            </form>
+
+        
+        </div>
+
+        <div class="user-info" id="userInfo">
+            <h2>Account</h2>
+            <span id="userName"></span>
+            <button type="submit" onclick="logOut();">Log out</button>
+        </div>
+    </section>
+    
+    
+    <section id = "home" class = "image-slider">
+
+        <div class = "slider">
+            <div class = "slides">
+                <img src="slides-shirt-og.jpg" alt="Image 1">
+                <img src="slides-hoodie.jpg" alt="Image 2">
+                <img src="slides-paint.jpg" alt="Image 3">
+            </div>
+        </div>
+        <div class="slide-btn">
+            <img class ="prev" onclick ="slide(-1)" src="prev.png" alt="Prev-btn">
+            <img class = "next" onclick ="slide(1)" src="next.png" alt="Next-btn">
+        </div>
+        
+    </section>
+
+    <section id="shop" class="product-section">
+        <div class ="shop-container">
+            <div class="product-box"
+                onclick="openProduct(
+                    'OG LOGO HOODIE',
+                    '₱1,499.00',
+                    'products/hoodie-logo.png'
+                )">
+
+                <img src="products/hoodie-logo.png" alt="Product">
+                <span>OG LOGO HOODIE</span>
+                <p>₱1,499.00</p>
+
+            </div>
+
+             <div class="product-box"
+             onclick="openProduct(
+                'BEACH HOODIE',
+                '₱1,499.00',
+                'products/hoodie-pink-it.png'
+                )">
+
+                <img src="products/hoodie-pink-it.png" alt="Product1">
+                <SPAN>BEACH HOODIE</SPAN>
+                <p>₱1,499.00</p>
+             </div>
+
+              <div class="product-box"
+              onclick="openProduct(
+                'PROGRAMMER HOODIE',
+                '₱1,499.00',
+                'products/hoodie-white-it.png'
+                )">
+
+                <img src="products/hoodie-white-it.png" alt="Product1">
+                <SPAN>PROGRAMMER HOODIE</SPAN>
+                <p>₱1,499.00</p>
+
+            </div>
+
+            <div class="product-box"
+              onclick="openProduct(
+                'DENIM JACKET',
+                '₱1,999.00',
+                'products/denim-jacket.png'
+                )">
+
+                <img src="products/denim-jacket.png" alt="Product1">
+                <SPAN>DENIM JACKET</SPAN>
+                <p>₱1,999.00</p>
+
+            </div>
+             <div class="product-box"
+              onclick="openProduct(
+                'RED BLACK POLOSHIRT',
+                '₱699.00',
+                'products/poloshirt-redblack.png'
+                )">
+
+                <img src="products/poloshirt-redblack.png" alt="Product1">
+                <SPAN>RED BLACK POLOSHIRT</SPAN>
+                <p>₱699.00</p>
+                
+            </div>
+
+             <div class="product-box"
+              onclick="openProduct(
+                'QUOTES T-SHIRT',
+                '₱599.00',
+                'products/shirt-black-quotes.png'
+                )">
+
+                <img src="products/shirt-black-quotes.png" alt="Product1">
+                <SPAN>QUOTES T-SHIRT</SPAN>
+                <p>₱599.00</p>
+
+            </div>
+
+             <div class="product-box"
+              onclick="openProduct(
+                'FIRE T-SHIRT',
+                '₱599.00',
+                'products/shirt-fire.png'
+                )">
+
+                <img src="products/shirt-fire.png" alt="Product1">
+                <SPAN>FIRE T-SHIRT</SPAN>
+                <p>₱599.00</p>
+
+            </div>
+
+             <div class="product-box"
+              onclick="openProduct(
+                'OG LOGO T-SHIRT',
+                '₱599.00',
+                'products/shirt-oglogo.png'
+                )">
+
+                <img src="products/shirt-oglogo.png" alt="Product1">
+                <SPAN>OG LOGO T-SHIRT</SPAN>
+                <p>₱599.00</p>
+
+            </div>
+
+             <div class="product-box"
+              onclick="openProduct(
+                'DENIM JORTS BLACK',
+                '₱799.00',
+                'products/jorts-denim-black.png'
+                )">
+
+                <img src="products/jorts-denim-black.png" alt="Product1">
+                <SPAN>DENIM JORTS BLACK</SPAN>
+                <p>₱799.00</p>
+
+            </div>
+
+            <div class="product-box"
+              onclick="openProduct(
+                'DENIM JORTS',
+                '₱799.00',
+                'products/jorts-denim.png'
+                )">
+
+                <img src="products/jorts-denim.png" alt="Product1">
+                <SPAN>DENIM JORTS</SPAN>
+                <p>₱799.00</p>
+                
+            </div>
+            <div class="product-box"
+              onclick="openProduct(
+                'EMBROID LOGO SHORT',
+                '₱499.00',
+                'products/short-embroid.png'
+                )">
+
+                <img src="products/short-embroid.png" alt="Product1">
+                <SPAN>EMBROID LOGO SHORT</SPAN>
+                <p>₱499.00</p>
+
+            </div>
+            <div class="product-box"
+              onclick="openProduct(
+                'SUMMER SHORT',
+                '₱499.00',
+                'products/short-summer.png'
+                )">
+
+                <img src="products/short-summer.png" alt="Product1">
+                <SPAN>SUMMER SHORT</SPAN>
+                <p>₱499.00</p>
+
+            </div>
+            <div class="product-box"
+              onclick="openProduct(
+                'EMBROID LOGO BEANIE',
+                '₱399.00',
+                'products/beanie-embroid.png'
+                )">
+
+                <img src="products/beanie-embroid.png" alt="Product1">
+                <SPAN>EMBROID LOGO BEANIE</SPAN>
+                <p>₱399.00</p>
+
+            </div>
+            <div class="product-box"
+              onclick="openProduct(
+                'EMBROID BUCKET HAT',
+                '₱499.00',
+                'products/bucket-hat.png'
+                )">
+
+                <img src="products/bucket-hat.png" alt="Product1">
+                <SPAN>EMBROID BUCKET HAT</SPAN>
+                <p>₱499.00</p>
+            </div>
+            
+        </div>
+    </section>
+
+    <div class = "cart-modal">
+        <button type="button" class="close-cart" onclick="closeCart()">
+            &times;
+        </button>
+        <h2 id="cartHeader">Your Cart</h2>
+        <div id="cartItemsContainer">
+            <div class="cart-total">
+                <strong>Total: ₱<span id="cartGrandTotal">0.00</span></strong>
+            </div>
+        </div>
+    </div>
+
+    <section id="contacts" class = "contact-info">
+        <div class="contact-container">
+            <img class="contacts-logo"src="logo.png" alt="">
+            <p class="message">Feel free to reach out if you'd like to work together or have any questions.</p>
+            <div class="contact-info">
+                <p class = "info">📧 Email: <a href="mailto:infernalgabriel@gmail.com">infernalgabriel@gmail.com</a></p>
+                <p class = "info">📱 Phone: +63 997 703 0658</p>
+                <p class = "info">📍 Taguig City, Philippines</p>
+            </div>
+            <div class="social-links">
+                <a href=""><img src="github-img.png" alt="githubIMG"></a>
+                <a href=""><img src="linkedin-img.png" alt="linkedInIMG"></a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content" id="footerContent">
+            <p>© 2026 Gab.Dev. All Rights Reserved.</p>
+            <p>Designed & Developed by Gabriel Hermoso</p>
+        </div>
+    </footer>
+  
+    
+
+    <div class = "product-modal" id="productModal">
+        <div class = "product-details">
+            <button class = "close-product" onclick ="closeProduct()">
+                &times;
+            </button>
+
+
+            <div class = "product-image" >
+                <img id ="productImage" src="" alt="Product">
+            </div>
+
+
+            <div class = "product-info">
+                <h2 id="productName">Product Name</h2>
+                <p class ="product-price" id="productPrice">
+                    ₱0.00
+                </p>
+                <p class = "product-description">
+                    This a comportable and Stylish product.
+                    Made with high-quality materials and perfect
+                    for everyday use
+                </p>
+            
+
+            <div class="size-section">
+                <div class ="size-title" >
+                    <span>Size:</span>
+                    <button onclick="openSizeChart()">
+                        Size Chart
+                    </button>
+                </div>
+                <div class ="sizes">
+                    <button class="size-btn" onclick="selectSize(this)">
+                        S
+                    </button>
+
+                    <button class="size-btn" onclick="selectSize(this)">
+                        M
+                    </button>
+
+                    <button class="size-btn" onclick="selectSize(this)">
+                        L
+                    </button>
+
+                    <button class="size-btn" onclick="selectSize(this)">
+                        XL
+                    </button>
+
+                </div>
+                </div>
+
+                <div class ="quantity-section" >
+                    <span>Quantity</span>
+
+                    <div class ="quantity">
+                        <button onclick="changeQuantity(-1)">
+                            -
+                        </button>
+
+                        <span id="quantity">
+                            1
+                        </span>
+
+                        <button onclick="changeQuantity(1)">
+                            +
+                        </button>
+                    </div>
+                </div>
+        
+
+                <button id = "addToCart" class="add-cart" onclick="addToCart()">
+                    Add to Cart
+                </button>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class = "size-chart-modal" id="sizeChart">
+        <div class ="size-chart">
+            <button class ="close-chart-btn" onclick="closeSizeChart()">
+                &times;
+            </button>
+            <h2>Size Chart</h2>
+            <table>
+                <tr>
+                    <th>Size</th>
+                    <th>Chest</th>
+                    <th>Length</th>
+                </tr>
+
+                <tr>
+                    <td>S</td>
+                    <td>20"</td>
+                    <td>27"</td>
+                </tr>
+
+                <tr>
+                    <td>M</td>
+                    <td>22"</td>
+                    <td>28"</td>
+                </tr>
+
+                <tr>
+                    <td>L</td>
+                    <td>24"</td>
+                    <td>29"</td>
+                </tr>
+
+                <tr>
+                    <td>XL</td>
+                    <td>26"</td>
+                    <td>30"</td>
+                </tr>
+
+            </table>
+        </div>
+    </div>
+
+
+    
+
+
+
+
+
+
+<script>
+
+
+
+
+
+/*
+---------- SLIDES 
+*/
+
+
+let currentSlide = 0;
+
+function slide(direction){
+    const slides = document.querySelector(".slides");
+    const totalSlides = document.querySelectorAll(".slides img").length;
+
+    currentSlide += direction;
+    
+    if (currentSlide < 0) {
+        currentSlide = 0;
+    }
+
+   
+    if (currentSlide === totalSlides) {
+        currentSlide = -1;
+    }
+    slides.style.transform =
+        "translateX(-" + (currentSlide * 100) + "vw)";
+}
+
+/*
+---------- SCROLLED CHANGE HEADER COLOR
+*/
+
+window.addEventListener("scroll", function(){
+    const header = document.querySelector("header")
+    const navA = document.querySelectorAll("nav ul li a")
+    const navAfter = document.querySelectorAll("nav ul li a::after")
+
+    if(window.scrollY > 5){
+        header.classList.add("scrolled")
+        navA.forEach(function(link){
+            link.classList.add("scrolled");
+        });
+      
+    }else{
+        header.classList.remove("scrolled")
+        navA.forEach(function(link){
+            link.classList.remove("scrolled")
+        });
+    }
+});
+
+const headers = document.querySelector("header")
+const iconss = document.querySelectorAll(".icons img")
+const navA = document.querySelectorAll("nav ul li a")
+const homeSection = document.querySelector(".image-slider");
+const productSection = document.querySelector(".product-section");
+const accountIcon = document.querySelector(".account");
+const accountSection = document.querySelector(".user-account");
+function openAccount(){
+    iconss.forEach(function(icon){
+        icon.style.filter = "brightness(0) invert(0)"
+    })
+    
+    navA.forEach(function(link){
+        link.style.color = "black"
+        link.classList.add("account-open")
+    })
+    header.style.display = "none";
+    homeSection.style.display = "none";
+    productSection.style.display = "none";
+    accountIcon.style.display = "none";
+    accountSection.style.display = "flex"
+    
+}
+function closeAccount(){
+    homeSection.style.display = "flex";
+    productSection.style.display = "flex";
+    accountIcon.style.display = "flex";
+    accountSection.style.display = "none"
+    header.classList.remove("scrolled")
+    location.reload()
+}
+
+
+/* ----------------------------
+---- SET AND GET USER FROM LOCAL STORAGE ----
+-------------------------------*/ 
+const loginFormElement = document.getElementById("loginForm")
+const registerFormElement = document.getElementById("registerForm")
+const registerForm = document.querySelector(".register-form")
+const loginForm = document.querySelector(".login-form")
+const logoutform = document.querySelector(".user-info")
+
+registerForm.addEventListener("submit", function(event){
+    event.preventDefault()
+    const firstname = document.getElementById("firstName").value.trim();
+    const lastname = document.getElementById("lastName").value.trim();
+    const email = document.getElementById("registerEmail").value.trim();
+    const password = document.getElementById("registerPassword").value.trim();
+    let users = JSON.parse(localStorage.getItem("users")) || [];
+    const user = {
+        firstname: firstname,
+        lastname: lastname,
+        email: email,
+        password: password
+    }
+
+    if(users.email === email){
+        alert("Email already Exist.")
+        return;
+    }else{
+        users.push(user);
+        localStorage.setItem("users", JSON.stringify(users));
+
+        alert("Register Successfully");
+
+        openLogin()
+        registerFormElement.reset()
+    }
+
+})
+
+loginForm.addEventListener("submit", function(event){
+    event.preventDefault()
+    const email = document.getElementById("loginEmail").value.trim();
+    const password = document.getElementById("loginPassword").value.trim();
+
+
+    const savedUser = JSON.parse(localStorage.getItem("users")) || [];
+
+    if (!savedUser){
+        alert("No account found. Please register first");
+    }
+
+    const user = savedUser.find(function(user){
+        return user.email === email && user.password === password;
+    })
+
+    if (user){
+        sessionStorage.setItem("loggedIn", "true");
+        sessionStorage.setItem("currentUser", JSON.stringify(user));
+        alert("login Successfully")
+       
+        openLogOut()
+        loginFormElement.reset()
+    }else{
+        alert("Incorrect Email or Password");
+    }
+
+});
+
+function openRegister(){
+    loginForm.style.display = "none"
+    registerForm.style.display = "flex"
+    logoutform.style.display = "none"
+}
+function openLogin(){
+    loginForm.style.display = "flex"
+    registerForm.style.display = "none"
+    logoutform.style.display = "none"
+   
+}
+
+
+
+
+
+function openLogOut(){
+    const userActive = sessionStorage.getItem("loggedIn")
+    const currentUser = JSON.parse(sessionStorage.getItem("currentUser"))
+    const fullname = currentUser.firstname + " " +currentUser.lastname
+    const userName = document.getElementById("userName")
+
+  
+    if (userActive === "true" && currentUser){
+        userName.textContent = fullname;
+        loginForm.style.display = "none";
+        registerForm.style.display = "none";
+        logoutform.style.display = "flex"
+    }else{
+        openLogin();
+        
+    }
+}
+
+
+/* ----------------------------
+---- overlay when click search and Search function ----
+-------------------------------*/
+
+
+const searchBtn = document.getElementById("clicksearch");
+const header = document.querySelector("header");
+const searchBar = document.querySelector(".search-bar");
+const searchInput = document.getElementById("search");
+const searchOverlay= document.querySelector(".search-overlay")
+
+searchBtn.addEventListener("click",()=>{
+    header.classList.add("hidden");
+    searchBar.classList.add("active");
+    searchInput.focus();
+    searchOverlay.classList.add("active")
+    document.body.classList.add("no-scroll")
+    openSearchBar()
+    
+});
+
+document.addEventListener("click", (event) => {
+
+ 
+    if (
+        !searchBar.contains(event.target) &&
+        !searchBtn.contains(event.target)
+    ) {
+        header.classList.remove("hidden");
+        searchBar.classList.remove("active");
+        removeSuggestionIfNotClick()
+        searchInput.blur();
+        searchOverlay.classList.remove("active");
+        document.body.classList.remove("no-scroll");
+        searchInput.value = ""
+      
+     
+    }
+
+}); 
+
+/* ----------------------------
+---- SIDE BAR FUNCTION ----
+-------------------------------*/
+
+function ShowSidebar(){
+    
+    const sidebar = document.querySelector(".sidebar");
+
+    sidebar.style.display = "flex";
+    
+};
+function hideSidebar(){
+   
+    const sidebar = document.querySelector(".sidebar")
+    
+    sidebar.style.display = "none";
+ 
+}
+
+
+/*
+---------- click product function
+*/
+
+
+
+const productmodal = document.getElementById("productModal");
+const productimage = document.getElementById("productImage");
+const productname = document.getElementById("productName");
+const productprice = document.getElementById("productPrice");
+
+let selectedSize = "";
+
+let quantity = 1;
+
+function openProduct(name, price, image){
+    productname.textContent = name;
+    productprice.textContent = price;
+    productimage.src = image;
+    quantity = 1;
+    Number(document.getElementById("quantity").textContent = quantity);
+    selectedSize = "";
+    document.querySelectorAll(".size-btn").forEach(function(button){
+        button.classList.remove("selected");
+    });
+  
+    productmodal.classList.add("active")
+    document.body.classList.add("no-scroll")
+    
+}
+
+
+
+function closeProduct(){
+    productmodal.classList.remove("active")
+    document.body.classList.remove("no-scroll")
+    searchInput.value = "";
+    openSearchBar()
+}
+
+function selectSize(button){
+    document.querySelectorAll(".size-btn").forEach(function(btn){
+        btn.classList.remove("selected")
+    });
+
+    button.classList.add("selected")
+    selectedSize = button.textContent.trim();
+}
+
+
+
+function changeQuantity(amount){
+    quantity += amount;
+    if(quantity < 1){
+        quantity = 1;
+    }
+    (document.getElementById("quantity").textContent = quantity);
+}
+
+
+
+
+/* ----------------------------
+---- open size chart modal ----
+-------------------------------*/
+
+function openSizeChart(){
+    const sizechart = document.querySelector(".size-chart-modal")
+    sizechart.classList.add("active")
+}
+function closeSizeChart(){
+    const sizechart = document.querySelector(".size-chart-modal")
+    sizechart.classList.remove("active")
+}
+
+
+/* ----------------------------
+---- SEARCH SUGGESTIONS ----
+-------------------------------*/
+    
+const search = document.getElementById("search");
+const suggestions = document.querySelectorAll(".suggestions-bar")
+
+search.addEventListener("input", function(){
+    
+    const inputs = search.value.toLowerCase().trim()
+    suggestions.forEach(function(bar){
+
+        const products = bar.querySelector("a")
+        const productname = products.textContent.toLowerCase()
+
+        if(inputs !== "" && productname.includes(inputs)){ 
+            bar.classList.add("show");
+            void bar.offsetWidth;
+        }else{
+            bar.classList.remove("show");
+            
+        }
+    
+    })
+})
+
+
+
+
+/* ----------------------------
+---- OPEN PRODUCT MODAL FROM SEARCH ----
+-------------------------------*/ 
+ 
+
+function openProductFromSuggestion(event, suggestions){
+event.preventDefault();
+    const suggestionContainer = document.querySelector(".suggestions")
+    const suggestionBar = suggestions.textContent.trim()
+    const productBox = document.querySelectorAll(".product-box")
+    productBox.forEach(function(product){
+        const productSpan = product.querySelector("span").textContent.trim()
+        if (productSpan === suggestionBar){
+            product.click()
+            suggestionContainer.style.display = "none";
+        }
+    });
+    
+}
+
+const suggestionContainer = document.querySelector(".suggestions")
+
+
+function removeSuggestionIfNotClick(){
+    suggestionContainer.style.display = "none"
+}
+
+function openSearchBar(){
+    searchBtn.addEventListener("click",()=>{
+    header.classList.add("hidden");
+    searchBar.classList.add("active");
+    searchInput.focus();
+    searchOverlay.classList.add("active")
+    document.body.classList.add("no-scroll")
+    suggestionContainer.style.display = "grid";
+    
+});
+}
+
+
+function getCartKey(){
+    const currentUser = JSON.parse(sessionStorage.getItem("currentUser"))
+
+
+    if(!currentUser){
+        return null
+    }
+
+    return "cartItems_" + currentUser.email;
+}
+
+document.getElementById("addToCart").addEventListener("click", ()=>{
+    
+    const loggedin = sessionStorage.getItem("loggedIn")
+
+    if (loggedin !== "true"){
+        alert("Login required")
+        return;
+    }
+
+    const cartKey = getCartKey()
+    let cartItems = JSON.parse(localStorage.getItem(cartKey)) || []
+
+    const productimage = document.getElementById("productImage").src;
+    const productname = document.getElementById("productName").innerHTML;
+    const productprice = document.getElementById("productPrice").innerHTML;
+    const selectedsize = selectedSize
+    const quantity = Number(document.getElementById("quantity").innerHTML);
+    
+
+    
+
+
+    
+     if (selectedsize === ""){
+        alert("Select size")
+        return;
+    }
+
+    
+
+    const existingItem = cartItems.find(item => 
+        item.productname === productname &&
+        item.selectedsize === selectedsize
+    )
+
+    if (existingItem){
+        existingItem.quantity = (existingItem.quantity) += Number(quantity);
+    }else{
+        const cart = {
+        productimage: productimage,
+        productname: productname,
+        productprice: productprice,
+        selectedsize: selectedsize,
+        quantity:quantity
+        }
+    
+        cartItems.push(cart);
+    }
+    
+    localStorage.setItem(cartKey, JSON.stringify(cartItems))
+
+    alert("Added to cart")
+    
+
+    loadCart();
+})
+
+
+
+function loadCart(){
+    const cartHeader = document.getElementById("cartHeader")
+    const cartContainer = document.getElementById("cartItemsContainer")
+    const cartKey = getCartKey()
+    let cartItems = JSON.parse(localStorage.getItem(cartKey)) || [];
+
+
+    
+    cartContainer.innerHTML = ""
+    cartHeader.innerHTML = "YOUR CART"
+    if (cartItems.length === 0){
+        cartHeader.innerHTML = "YOUR CART IS EMPTY!"
+        document.getElementById("cartGrandTotal").textContent = "0.00"
+        return;
+    }
+    let grandTotal = 0
+    cartItems.forEach(function(item, index){
+        const price = parseFloat(item.productprice.replace("₱", "").replace(",", ""));
+
+        const total = price * item.quantity;
+        grandTotal += total
+
+        const cartItem = document.createElement("div");
+        cartItem.classList.add("cart-item");
+        cartItem.innerHTML = `
+            <div class="cart-item-content">
+                <div class="cart-item-info">
+                    <img src="${item.productimage}" alt="${item.productname}">
+                </div>
+                <div class = "cart-item-info1">
+                    <h3>${item.productname}</h3>
+                    <p>Size: ${item.selectedsize}</p>
+                    <p>Price: ${item.productprice}</p>
+                </div>
+                <div class="cart-item-info">
+                    <div class="quantity">
+                        <button onclick="changeCartQuantity(${index}, -1)">
+                            -
+                        </button>
+
+                        <span>
+                            ${item.quantity}
+                        </span>
+
+                        <button onclick="changeCartQuantity(${index}, 1)">
+                            +
+                        </button>
+                    </div>
+                </div>
+                <div class= "cart-item-info">
+                    <p>
+                        Total: ₱${total.toLocaleString("en-PH", {
+                            minimumFractionDigits: 2
+                        })}
+                    </p>
+                <div>
+                <div class="delete-btn">
+                    <button class="delete-button" type="button" onclick="deleteCartItem(${index})">
+                        DELETE
+                    </button>       
+                </div>
+            </div>
+        `;
+
+        cartContainer.appendChild(cartItem);
+    });
+
+    document.getElementById("cartGrandTotal").textContent = 
+        grandTotal.toLocaleString("en-PH", {
+            minimumFractionDigits: 2
+        });
+
+        
+    
+}
+
+function logOut(){
+    const confirmLogout = confirm("Are you sure you want to log out?")
+
+    if (confirmLogout){
+        sessionStorage.removeItem("loggedIn");
+        sessionStorage.removeItem("currentUser")
+        loginFormElement.reset()
+        openLogin()
+        
+    }else{
+        return;
+    }
+
+
+}
+const cartModal = document.querySelector(".cart-modal")
+const contactSection = document.getElementById("contacts")
+const footerContent = document.getElementById("footerContent")
+
+function openCart(){
+    
+
+    headers.style.display = "none"
+    productSection.style.display ="none"
+    homeSection.style.display = "none"
+    contactSection.style.display = "none"
+    footerContent.style.display = "none"
+    
+
+    cartModal.style.display = "flex"
+
+}
+function closeCart(){
+    headers.style.display = "flex"
+    productSection.style.display ="flex"
+    homeSection.style.display = "flex"
+    contactSection.style.display = "flex"
+    footerContent.style.display = "flex"
+    cartModal.style.display = "none"
+}
+
+function changeCartQuantity(index, amount){
+    const cartKey = getCartKey()
+    let cartItems = JSON.parse(localStorage.getItem(cartKey)) || []
+    
+    
+
+    cartItems[index].quantity = Number(cartItems[index].quantity) + amount
+
+    if(cartItems[index].quantity < 1){
+        cartItems[index].quantity = 1
+    }
+
+    localStorage.setItem(cartKey,JSON.stringify(cartItems));
+
+    
+
+    loadCart();
+}
+
+function deleteCartItem(index){
+    const cartKey = getCartKey()
+    let cartItems = JSON.parse(localStorage.getItem(cartKey)) || [];
+
+    const confirmDelete = confirm("Are you sure you want to delete this product?")
+
+    if(confirmDelete){
+        cartItems.splice(index,1)
+        localStorage.setItem(cartKey,JSON.stringify(cartItems));
+        loadCart()
+    }else{
+        return;
+    }
+}
+
+   window.addEventListener("DOMContentLoaded", function () {
+    openLogOut();
+    loadCart()
+});
+
+
+
+
+
+
+</script>
+</body>
+</html>
